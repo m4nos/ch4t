@@ -1,41 +1,28 @@
 import React from "react";
-import { Card, Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import ApolloProvider from "./ApolloProvider";
 
 import "./App.scss";
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
     <div>
-      <Container>
-        <Row className='bg-white py-5'>
-          <Col>
-            <h1>REgister</h1>
-            <Form>
-              <Form.Group>
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type='email' placeholder='' />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Username</Form.Label>
-                <Form.Control type='text' placeholder='' />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Password</Form.Label>
-                <Form.Control type='password' placeholder='' />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type='password' placeholder='' />
-              </Form.Group>
-              <div className='text-center'>
-                <Button variant='success' type='submit'>
-                  Register
-                </Button>
-              </div>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
+      <ApolloProvider>
+        <BrowserRouter>
+          <Container className='pt-5'>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/register' component={Register} />
+              <Route path='/login' component={Login} />
+            </Switch>
+          </Container>
+        </BrowserRouter>
+      </ApolloProvider>
     </div>
   );
 }

@@ -50,7 +50,7 @@ module.exports = {
 
         if (!correctPassword) {
           errors.password = "password is incorrect";
-          throw new AuthenticationError("password is incorrect1234", {
+          throw new UserInputError("password is incorrect1234", {
             errors,
           });
         }
