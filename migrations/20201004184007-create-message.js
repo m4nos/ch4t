@@ -17,8 +17,14 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         allowNull: false,
       },
-      from: Sequelize.STRING,
-      to: Sequelize.STRING,
+      from: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      to: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

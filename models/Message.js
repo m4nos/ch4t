@@ -22,8 +22,14 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
       },
-      from: DataTypes.STRING,
-      to: DataTypes.STRING,
+      from: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      to: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       sequelize,

@@ -3,8 +3,8 @@ const { UserInputError, AuthenticationError } = require("apollo-server");
 const jwt = require("jsonwebtoken");
 const { Op } = require("sequelize");
 
-const { User } = require("../models");
-const { JWT_SECRET } = require("../config/env.json");
+const { User } = require("../../models");
+const { JWT_SECRET } = require("../../config/env.json");
 
 module.exports = {
   Query: {
