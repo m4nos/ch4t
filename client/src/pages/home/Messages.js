@@ -4,6 +4,8 @@ import { Col } from "react-bootstrap";
 
 import { useMessageDispatch, useMessageState } from "../../context/message";
 
+import Message from "./Message";
+
 const GET_MESSAGES = gql`
   query getMessages($from: String!) {
     getMessages(from: $from) {
@@ -53,11 +55,15 @@ export default function Messages() {
     selectedChatMarkup = <p>Loading..</p>;
   } else if (messages.length > 0) {
     selectedChatMarkup = messages.map((message) => (
-      <p key={message.uuid}>{message.content}</p>
+      <Message key={message.uuid} message={message} />
     ));
   } else if (messages.length === 0) {
     selectedChatMarkup = <p>You are now connected! send your first message!</p>;
   }
 
-  return <Col xs={8}>{selectedChatMarkup}</Col>;
+  return (
+    <Col xs={8} className='messages-box d-flex flex-column-reverse'>
+      {selectedChatMarkup}
+    </Col>
+  );
 }
