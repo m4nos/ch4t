@@ -38,7 +38,6 @@ export default function Message({ message }) {
       placement="top"
       show={showPopover}
       onToggle={setShowPopover}
-      
       transition={false}
       rootClose
       overlay={
@@ -49,8 +48,6 @@ export default function Message({ message }) {
                 variant="link"
                 className="react-icon-button"
                 key={reaction}
-                textDecoration='inherit'
-                color='inherit'
                 onClick={() => react(reaction)}
               >
                 {reaction}
@@ -60,7 +57,7 @@ export default function Message({ message }) {
         </Popover>
       }
     >
-      <Button variant="link" className="px-2 ">
+      <Button variant="link" className="px-2">
         <i className="far fa-smile"></i>
       </Button>
     </OverlayTrigger>
