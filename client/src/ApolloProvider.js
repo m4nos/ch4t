@@ -31,7 +31,7 @@ httpLink = authLink.concat(httpLink)
 const host = window.location.host
 
 const wsLink = new WebSocketLink({
-  uri: `ws://${host}/graphql`,
+  uri: `ws://${host}/graphql/`,
   options: {
     reconnect: true,
     connectionParams: {
